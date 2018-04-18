@@ -1,4 +1,4 @@
-/// <reference path="node_modules/utilsx/utils.js" />
+/// <reference path="node_modules/utilsx/utils.ts" />
 /// <reference path="node_modules/vectorx/vector.ts" />
 
 var crret = createCanvas(500,500)
