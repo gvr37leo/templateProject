@@ -4,9 +4,9 @@
   "description": "",
   "main": "package.js",
   "dependencies": {
-    "express": "^4.16.3",
-    "utilsx": "^1.7.0",
-    "vectorx": "^2.0.0"
+    "express": "*",
+    "utilsx": "*",
+    "vectorx": "*"
   },
   "devDependencies": {},
   "scripts": {
