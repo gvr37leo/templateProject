@@ -6,7 +6,9 @@
   "dependencies": {
     "express": "*",
     "utilsx": "*",
-    "vectorx": "*"
+    "vectorx": "*",
+    "eventsystemx":"*",
+    "rect3x":"*"
   },
   "devDependencies": {},
   "scripts": {
