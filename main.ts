@@ -1,5 +1,5 @@
-/// <reference path="node_modules/utilsx/utils.ts" />
 /// <reference path="node_modules/vectorx/vector.ts" />
+/// <reference path="node_modules/utilsx/utils.ts" />
 
 var screensize = new Vector(document.documentElement.clientWidth,document.documentElement.clientHeight)
 var crret = createCanvas(screensize.x,screensize.y)
