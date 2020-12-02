@@ -42,7 +42,7 @@ class Ability{
     }
 
     canActivate(){
-        return this.rules.some(r => r.cb())
+        return this.rules.every(r => r.cb())
     }
 
     callActivate(){

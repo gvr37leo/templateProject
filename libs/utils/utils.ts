@@ -58,7 +58,7 @@ function random(min: number, max: number){
 var lastUpdate = Date.now();
 function loop(callback){
     var now = Date.now()
-    callback(now - lastUpdate)
+    callback((now - lastUpdate) / 1000)
     lastUpdate = now
     requestAnimationFrame(() => {
         loop(callback)
@@ -189,3 +189,7 @@ function copy2dArray<T>(arr:T[][]){
     return create2DArray(get2DArraySize(arr),pos => index2D(arr,pos))
 }
 
+function round(number,decimals){
+    var mul = 10 ** decimals
+    return Math.round(number *  mul) / mul
+}
