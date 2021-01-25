@@ -35,6 +35,13 @@ function rangeContain(a1: number, a2: number, b1: number, b2: number):boolean{//
     return max(a1, a2) >= max(b1, b2) && min(a1,a2) <= max(b1,b2);
 }
 
+function startMouseListen(localcanvas:HTMLCanvasElement){
+    var mousepos = new Vector(0,0)
+    document.addEventListener('mousemove',(e) => {
+        mousepos.overwrite(getMousePos(localcanvas,e))
+    })
+    return mousepos
+}
 
 function getMousePos(canvas:HTMLCanvasElement, evt:MouseEvent) {
     var rect = canvas.getBoundingClientRect();
@@ -172,7 +179,7 @@ function create2DArray<T>(size:Vector,filler:(pos:Vector) => T){
         result[i] = new Array(size.x)
     }
     size.loop2d(v => {
-        result[v.x][v.y] = filler(v)
+        result[v.y][v.x] = filler(v)
     })
     return result
 }

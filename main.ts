@@ -9,6 +9,8 @@
 /// <reference path="libs/rect/rect.ts" />
 /// <reference path="libs/event/eventqueue.ts" />
 /// <reference path="libs/event/eventsystem.ts" />
+/// <reference path="libs/utils/camera.ts" />
+
 
 
 
