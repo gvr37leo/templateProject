@@ -200,3 +200,26 @@ function round(number,decimals){
     var mul = 10 ** decimals
     return Math.round(number *  mul) / mul
 }
+
+var rng = new RNG(0)
+function shuffle<T>(array:T[]){
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(rng.norm() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
+function remove(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
+    }
+    return arr;
+  }

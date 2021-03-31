@@ -10,6 +10,9 @@
 /// <reference path="libs/event/eventqueue.ts" />
 /// <reference path="libs/event/eventsystem.ts" />
 /// <reference path="libs/utils/camera.ts" />
+/// <reference path="libs/networking/entity.ts" />
+/// <reference path="libs/networking/server.ts" />
+
 
 
 
