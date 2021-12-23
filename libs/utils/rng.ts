@@ -16,8 +16,22 @@ class RNG{
         return this.next() / this.mod
     }
     
-    
     range(min:number,max:number){
-        return this.norm() * to(min,max) + min
+        return lerp(min,max,this.norm())
+    }
+
+    rangeFloor(min:number,max:number){
+        return Math.floor(this.range(min,max))
+    }
+
+    choose<T>(arr:T[]):T{
+        return arr[this.rangeFloor(0,arr.length)]
+    }
+
+    shuffle<T>(arr:T[]):T[]{
+        for(var end = arr.length; end > 0; end--) {
+          swap(arr,this.rangeFloor(0,end), end)
+        }
+        return arr;
     }
 }
