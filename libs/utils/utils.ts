@@ -144,13 +144,6 @@ function findbestIndex<T>(list:T[], evaluator:(v:T) => number):number {
     return bestIndex
 }
 
-function string2html(string): HTMLElement {
-    var div = document.createElement('div')
-    div.innerHTML = string;
-    return div.children[0] as HTMLElement;
-}
-
-
 function lerp(a:number,b:number,r:number):number{
     return a + to(a,b) * r
 }
