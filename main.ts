@@ -12,7 +12,7 @@
 /// <reference path="libs/utils/camera.ts" />
 /// <reference path="libs/networking/entity.ts" />
 /// <reference path="libs/networking/server.ts" />
-/// <reference path="libs/utils/domutils.ts" />
+/// <reference path="libs/utils/domutils.js" />
 
 
 

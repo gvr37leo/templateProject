@@ -1,5 +1,5 @@
 
-var contextStack = []
+var contextStack = [[document.body]]
 
 function currentContext(){
     return last(contextStack)
@@ -32,8 +32,11 @@ function cr(tag,attributes = {}){
     return element
 }
 
-function crend(tag,attributes = {}){
+function crend(tag,attributes = {},textstring){
     cr(tag,attributes)
+    if(textstring){
+        text(textstring)
+    }
     return end()
 }
 
@@ -47,11 +50,13 @@ function html(html){
     peek().innerHTML = html
 }
 
-function end(){
-    return currentContext().pop()
+function end(endelement){
+    var poppedelement = currentContext().pop()
+    if(endelement != null && endelement != poppedelement){
+        console.warn(poppedelement,' doesnt equal ', endelement)
+    }
+    return poppedelement
 }
-
-
 
 HTMLElement.prototype.on = function(event,cb){
     this.addEventListener(event,cb)
