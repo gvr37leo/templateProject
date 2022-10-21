@@ -32,25 +32,22 @@ function cr(tag,attributes = {}){
     return element
 }
 
-function crend(tag,attributes = {},textstring){
+function crend(tag,textstring,attributes = {}){
     cr(tag,attributes)
-    if(textstring){
-        text(textstring)
-    }
+    text(textstring)
     return end()
 }
 
 function text(data){
-    var textnode = document.createTextNode(data)
-    peek().appendChild(textnode)
-    return textnode
+    peek().textContent = data
+    return peek()
 }
 
 function html(html){
     peek().innerHTML = html
 }
 
-function end(endelement){
+function end(endelement = null){
     var poppedelement = currentContext().pop()
     if(endelement != null && endelement != poppedelement){
         console.warn(poppedelement,' doesnt equal ', endelement)
@@ -65,7 +62,7 @@ HTMLElement.prototype.on = function(event,cb){
 
 function peek(){
     var context = currentContext()
-    return context[context.length - 1]
+    return last(context)
 }
 
 function flush(){
@@ -75,23 +72,23 @@ function flush(){
     return root
 }
 
-function div(options){
+function div(options = {}){
     return cr('div',options)
 }
 
-function a(options){
+function a(options = {}){
     return cr('a',options)
 }
 
-function button(options){
-    return cr('button',options)
+function button(text,options = {}){
+    return crend('button',text,options)
 }
 
-function input(options){
-    return cr('input',options)
+function input(options = {}){
+    return crend('input',options)
 }
 
-function img(options){
+function img(options = {}){
     return crend('img',options)
 }
 
