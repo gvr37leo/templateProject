@@ -105,6 +105,10 @@ class Vector{
         // https://www.youtube.com/watch?v=tjTRXzwdU6A&list=PLImQaTpSAdsArRFFj8bIfqMk2X7Vlf3XF&index=7
         return this.x * v.y - this.y * v.x
     }
+	
+    area(v){
+        return this.wedge(v) / 2
+    }
 
     loop(callback: (vector: Vector) => void): void {
         var counter = this.c()
