@@ -105,6 +105,9 @@ class Vector{
         // https://www.youtube.com/watch?v=tjTRXzwdU6A&list=PLImQaTpSAdsArRFFj8bIfqMk2X7Vlf3XF&index=7
         return this.x * v.y - this.y * v.x
     }
+    //wedge can be used for collission detection
+    //https://www.youtube.com/watch?v=tjTRXzwdU6A&list=PLImQaTpSAdsArRFFj8bIfqMk2X7Vlf3XF&index=8
+    //1:18:06
 	
     area(v){
         return this.wedge(v) / 2
