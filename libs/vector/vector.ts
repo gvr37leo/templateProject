@@ -100,6 +100,11 @@ class Vector{
         var refl = vecout.add(vec2center.scale(2));
         return refl;
     }
+	
+    wedge(v){//determinant
+        // https://www.youtube.com/watch?v=tjTRXzwdU6A&list=PLImQaTpSAdsArRFFj8bIfqMk2X7Vlf3XF&index=7
+        return this.x * v.y - this.y * v.x
+    }
 
     loop(callback: (vector: Vector) => void): void {
         var counter = this.c()
