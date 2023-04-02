@@ -75,6 +75,31 @@ class Vector{
         this.map((arr,i) => sum += arr[i] * v.vals[i])
         return sum
     }
+	
+    rotate2d(turns){
+        var radians = turns * Math.PI * 2
+        var cost = Math.cos(radians);
+        var sint = Math.sin(radians);
+        var x = this.x * cost - this.y * sint;
+        var y = this.x * sint + this.y * cost;
+        this.x = x;
+        this.y = y;
+        return this;
+    }
+	
+    projectOnto(v){
+        // https://www.youtube.com/watch?v=fjOdtSu4Lm4&list=PLImQaTpSAdsArRFFj8bIfqMk2X7Vlf3XF&index=1
+        var vnormal = v.c().normalize()
+        return vnormal.scale(this.dot(vnormal)) 
+    }
+
+    static reflect(normalout,vecin){
+        var vecout = vecin.c().scale(-1)
+        var center = vecout.projectOnto(normalout)
+        var vec2center = vecout.to(center);
+        var refl = vecout.add(vec2center.scale(2));
+        return refl;
+    }
 
     loop(callback: (vector: Vector) => void): void {
         var counter = this.c()
