@@ -75,6 +75,10 @@ class Vector{
         this.map((arr,i) => sum += arr[i] * v.vals[i])
         return sum
     }
+
+    angle2d(b:Vector){
+        return Math.acos(this.dot(b) / (this.length() + b.length()))  
+    }
 	
     rotate2d(turns){
         var radians = turns * Math.PI * 2
