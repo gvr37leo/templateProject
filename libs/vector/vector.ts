@@ -90,6 +90,20 @@ class Vector{
         this.y = y;
         return this;
     }
+
+    rotate3d(axis:Vector,radians:number):Vector{
+        var cost = Math.cos(radians)
+        var sint = Math.sin(radians)
+        var res = this.c().scale(cost)
+        res.add(axis.cross(this).scale(sint))
+        res.add(axis.c().scale(axis.dot(this) * (1 - cost)))
+        this.overwrite(res)
+        return this
+    }
+
+    anglediff3d(v:Vector){
+        return Math.acos(this.dot(v) / (this.length() * v.length()))
+    }
 	
     projectOnto(v){
         // https://www.youtube.com/watch?v=fjOdtSu4Lm4&list=PLImQaTpSAdsArRFFj8bIfqMk2X7Vlf3XF&index=1
