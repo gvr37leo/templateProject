@@ -4,6 +4,10 @@ class Rect{
     constructor(public min:Vector, public max:Vector){
     }
 
+    static fromsize(pos:Vector,size:Vector){
+        return new Rect(pos,pos.c().add(size))
+    }
+
     collidePoint(point:Vector){
         
         for (var i = 0; i < this.min.vals.length; i++) {
@@ -19,12 +23,10 @@ class Rect{
     }
 
     collideBox(other:Rect){
-        for(var i = 0; i < 2; i++){
-			if(!rangeOverlap(this.min[i], this.max[i], other.min[i], other.max[i])){
-				return false;
-			}
-		}
-		return true;
+
+        var x = rangeOverlap(this.min.x, this.max.x, other.min.x, other.max.x)
+        var y = rangeOverlap(this.min.y, this.max.y, other.min.y, other.max.y)
+		return x && y;
     }
 
 
