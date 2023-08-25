@@ -37,9 +37,9 @@ class Rect{
        ctxt.fillRect(this.min.x,this.min.y,size.x,size.y)
     }
 
-    move(pos:Vector){
+    moveTo(pos:Vector){
         var size = this.size()
-        this.min = pos
+        this.min = pos.c()
         this.max = this.min.c().add(size)
     }
 
