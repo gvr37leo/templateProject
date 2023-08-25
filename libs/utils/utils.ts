@@ -148,6 +148,10 @@ function lerp(a:number,b:number,r:number):number{
     return a + to(a,b) * r
 }
 
+function tween(x,a,b){
+    return (a + b - 2) * x * x * x + (3 - 2*a - b) * x * x + a * x
+}
+
 function to(a:number,b:number):number{
     return b - a;
 }
